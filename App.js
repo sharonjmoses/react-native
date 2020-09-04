@@ -11,7 +11,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { HomeScreen } from './Screens/home';
 import { AuthScreen } from './Screens/Auth';
-
+import { DatabaseScreen } from './Screens/database';
 
 
 const Stack = createStackNavigator();
@@ -24,6 +24,7 @@ const App = () => {
       <Stack.Navigator headerMode='None' initialRouteName='Home'>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Auth" component={AuthScreen} />
+        <Stack.Screen name="Database" component={DatabaseScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

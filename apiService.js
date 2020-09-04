@@ -1,5 +1,5 @@
 import React from 'react';
-import {Auth} from './Setup';
+import {Auth, database} from './Setup';
 
 export const SignUpUser = (email, password) => {
     return new Promise(function(resolve, reject){
@@ -31,3 +31,30 @@ export const SignOutUser = () => {
        })
     })
 }
+
+export const submitUser = (Id, Name, Position) => {
+    return new Promise(function(resolve, reject) {
+      let key;
+      if (Id != null) {
+        key = Id;
+      } else {
+        key = database()
+          .ref()
+          .push().key;
+      }
+      let dataToSave = {
+        Id: key,
+        Name: Name,
+        Position: Position,
+      };
+      database()
+        .ref('users/' + key)
+        .update(dataToSave)
+        .then(snapshot => {
+          resolve(snapshot);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  };

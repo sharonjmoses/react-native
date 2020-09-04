@@ -22,6 +22,12 @@ export function HomeScreen({navigation}){
                 Authenticator
               </Text>
             </ListItem>
+
+            <ListItem onPress={()=> navigation.navigate('Database')}>
+              <Text>
+                Database
+              </Text>
+            </ListItem>
           </Content>
   
       </Container>

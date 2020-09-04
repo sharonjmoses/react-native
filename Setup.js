@@ -1,7 +1,9 @@
 import * as React from 'react';
 import App from './App';
-import firebase from "@react-native-firebase/app"
-import Auth from "@react-native-firebase/auth"
+import firebase from "@react-native-firebase/app";
+import Auth from "@react-native-firebase/auth";
+import database from "@react-native-firebase/database";
+import messaging from '@react-native-firebase/messaging';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAAbHzxkq8ggboKiYdPCkOGbzFMc6WDwA0",
@@ -17,9 +19,23 @@ if(!firebase.apps.length){
     firebase.initializeApp(firebaseConfig);
 }
 
-export {firebase, Auth}
+const setupCloudMessaging = async () => {
+    const token = await messaging().getToken();
+    console.log(token);
+    //  alert(token);
+
+  };
+
+
+
+export {firebase, Auth, database}
 
 const Setup = () => {
+
+    // React.useEffect(async () => {
+    //     setupCloudMessaging();
+    // }, [])
+
     return ( <App/> );
 }
  
