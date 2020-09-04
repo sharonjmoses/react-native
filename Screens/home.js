@@ -1,11 +1,28 @@
 import * as React from 'react';
-import {Content, Container, Text} from 'native-base';
+import {Content,
+  Container,
+  Header,
+  Body,
+  Title,
+  ListItem,
+  Text} from 'native-base';
 
 export function HomeScreen({navigation}){
     return(
       <Container>
-                <Text>Hellou  this is ashok ahok Bhai Bhai</Text>
-        <Content/>
+                <Header>
+                  <Body>
+                    <Title>Home Page</Title>
+                  </Body>
+                </Header>
+     
+          <Content>
+            <ListItem onPress={()=> navigation.navigate('Auth')}>
+              <Text>
+                Authenticator
+              </Text>
+            </ListItem>
+          </Content>
   
       </Container>
     )
